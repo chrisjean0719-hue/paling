@@ -1,0 +1,8 @@
+{
+  "name": "Sample garden paling",
+  "widthMm": 1420,
+  "heightMm": 900,
+  "picketMm": 70,
+  "gapMm": 20,
+  "rails": 2
+}
