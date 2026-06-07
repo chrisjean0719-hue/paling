@@ -1,14 +1,10 @@
 # Roadmap
 
-Paling plans one picket panel over HTTP and counts its pickets and wood. Five updates remain, and about 38 hours stay after those.
+Paling plans one picket panel over HTTP, can add a gravel board, and counts its pickets and wood. Four updates remain, and about 38 hours stay after those.
 
-## The next five updates
+## The next four updates
 
-### Gravel board (the next update)
-
-Add a board under the pickets. The pickets shorten by its height, and the board is one extra stick.
-
-### Pointed tops
+### Pointed tops (the next update)
 
 Add a point on each picket and count that extra wood.
 
@@ -72,4 +68,4 @@ Add a cap along the posts and report its length.
 
 List the nails, the clips, and the post caps for the plan.
 
-A gravel board is the next piece. The API can plan one panel, and it does not yet add a gravel board.
+Pointed tops are the next piece. The API can add a gravel board, and it does not yet add a point on each picket.

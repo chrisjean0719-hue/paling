@@ -20,7 +20,10 @@ class PanelPlanner
         $picket = $filled['picketMm'];
         $gap = $filled['gapMm'];
         $rails = $filled['rails'];
+        $gravel = $filled['gravelMm'] ?? 0;
         $pickets = Layout::picketCount($width, $picket, $gap);
+        $picketLength = $height - $gravel;
+        $boardLength = $gravel === 0 ? 0 : $width;
 
         return [
             'name' => trim($filled['name']),
@@ -29,8 +32,11 @@ class PanelPlanner
             'picketMm' => $picket,
             'gapMm' => $gap,
             'rails' => $rails,
+            'gravelMm' => $gravel,
+            'picketLengthMm' => $picketLength,
             'pickets' => $pickets,
-            'woodLengthMm' => Layout::woodLengthMm($width, $height, $pickets, $rails),
+            'boardLengthMm' => $boardLength,
+            'woodLengthMm' => Layout::woodLengthMm($width, $picketLength, $pickets, $rails, $boardLength),
         ];
     }
 

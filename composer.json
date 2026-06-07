@@ -2,7 +2,7 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "paling/paling",
     "type": "project",
-    "description": "Plan a picket paling and count its pickets and wood",
+    "description": "Plan a picket paling with an optional gravel board",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {

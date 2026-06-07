@@ -14,6 +14,7 @@ class PanelFormatter
             "panel: {$plan['widthMm']} mm by {$plan['heightMm']} mm",
             "pickets: {$plan['pickets']} at {$plan['picketMm']} mm, gap {$plan['gapMm']} mm",
             "rails: {$plan['rails']}",
+            $plan['gravelMm'] === 0 ? 'gravel: none' : "gravel: {$plan['gravelMm']} mm, board {$plan['boardLengthMm']} mm",
             "wood: {$plan['woodLengthMm']} mm",
         ]);
     }

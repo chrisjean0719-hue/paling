@@ -16,8 +16,8 @@ class Layout
         return $count >= 2 ? $count : null;
     }
 
-    public static function woodLengthMm(int $widthMm, int $heightMm, int $pickets, int $rails): int
+    public static function woodLengthMm(int $widthMm, int $picketLengthMm, int $pickets, int $rails, int $boardLengthMm = 0): int
     {
-        return $pickets * $heightMm + $rails * $widthMm;
+        return $pickets * $picketLengthMm + $rails * $widthMm + $boardLengthMm;
     }
 }

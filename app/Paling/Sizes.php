@@ -29,4 +29,10 @@ class Sizes
     public const MAX_RAILS = 4;
 
     public const DEFAULT_RAILS = 2;
+
+    public const MIN_GRAVEL_MM = 80;
+
+    public const MAX_GRAVEL_MM = 300;
+
+    public const MIN_PICKET_LENGTH_MM = 200;
 }

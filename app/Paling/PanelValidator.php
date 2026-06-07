@@ -33,6 +33,10 @@ class PanelValidator
         if (! self::inRange($panel['rails'] ?? null, Sizes::MIN_RAILS, Sizes::MAX_RAILS)) {
             $errors[] = 'rails: rails must be an integer from '.Sizes::MIN_RAILS.' to '.Sizes::MAX_RAILS;
         }
+        $gravel = $panel['gravelMm'] ?? null;
+        if ($gravel !== null && ! self::inRange($gravel, Sizes::MIN_GRAVEL_MM, Sizes::MAX_GRAVEL_MM)) {
+            $errors[] = 'gravelMm: gravelMm must be an integer from '.Sizes::MIN_GRAVEL_MM.' to '.Sizes::MAX_GRAVEL_MM;
+        }
         if ($errors !== []) {
             return $errors;
         }
@@ -40,6 +44,9 @@ class PanelValidator
         $count = Layout::picketCount($panel['widthMm'], $panel['picketMm'], $panel['gapMm']);
         if ($count === null) {
             $errors[] = 'widthMm: the pickets do not divide the panel into whole millimetres';
+        }
+        if (is_int($gravel) && $panel['heightMm'] - $gravel < Sizes::MIN_PICKET_LENGTH_MM) {
+            $errors[] = 'gravelMm: the gravel board leaves the pickets under '.Sizes::MIN_PICKET_LENGTH_MM.' mm';
         }
 
         return $errors;
