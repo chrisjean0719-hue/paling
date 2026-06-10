@@ -15,12 +15,15 @@ class PlanTest extends TestCase
         $plan = PanelPlanner::plan(SamplePanel::garden());
         $this->assertSame(16, $plan['pickets']);
         $this->assertSame(0, $plan['gravelMm']);
+        $this->assertSame(0, $plan['pointMm']);
+        $this->assertSame(0, $plan['pointWoodMm']);
         $this->assertSame(900, $plan['picketLengthMm']);
         $this->assertSame(17240, $plan['woodLengthMm']);
         $text = PanelFormatter::format($plan);
         $this->assertStringStartsWith('Sample garden paling', $text);
         $this->assertStringContainsString('pickets: 16 at 70 mm, gap 20 mm', $text);
         $this->assertStringContainsString('gravel: none', $text);
+        $this->assertStringContainsString('point: none', $text);
         $this->assertStringContainsString('wood: 17240 mm', $text);
     }
 

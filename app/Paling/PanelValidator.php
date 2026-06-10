@@ -37,6 +37,10 @@ class PanelValidator
         if ($gravel !== null && ! self::inRange($gravel, Sizes::MIN_GRAVEL_MM, Sizes::MAX_GRAVEL_MM)) {
             $errors[] = 'gravelMm: gravelMm must be an integer from '.Sizes::MIN_GRAVEL_MM.' to '.Sizes::MAX_GRAVEL_MM;
         }
+        $point = $panel['pointMm'] ?? null;
+        if ($point !== null && ! self::inRange($point, Sizes::MIN_POINT_MM, Sizes::MAX_POINT_MM)) {
+            $errors[] = 'pointMm: pointMm must be an integer from '.Sizes::MIN_POINT_MM.' to '.Sizes::MAX_POINT_MM;
+        }
         if ($errors !== []) {
             return $errors;
         }

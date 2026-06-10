@@ -16,8 +16,13 @@ class Layout
         return $count >= 2 ? $count : null;
     }
 
-    public static function woodLengthMm(int $widthMm, int $picketLengthMm, int $pickets, int $rails, int $boardLengthMm = 0): int
+    public static function pointWoodMm(int $pickets, int $pointMm): int
     {
-        return $pickets * $picketLengthMm + $rails * $widthMm + $boardLengthMm;
+        return $pickets * $pointMm;
+    }
+
+    public static function woodLengthMm(int $widthMm, int $picketLengthMm, int $pickets, int $rails, int $boardLengthMm = 0, int $pointWoodMm = 0): int
+    {
+        return $pickets * $picketLengthMm + $rails * $widthMm + $boardLengthMm + $pointWoodMm;
     }
 }

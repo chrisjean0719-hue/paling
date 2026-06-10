@@ -35,4 +35,8 @@ class Sizes
     public const MAX_GRAVEL_MM = 300;
 
     public const MIN_PICKET_LENGTH_MM = 200;
+
+    public const MIN_POINT_MM = 20;
+
+    public const MAX_POINT_MM = 80;
 }
