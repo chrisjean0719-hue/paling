@@ -39,4 +39,8 @@ class Sizes
     public const MIN_POINT_MM = 20;
 
     public const MAX_POINT_MM = 80;
+
+    public const MIN_SET_MM = 300;
+
+    public const MAX_SET_MM = 900;
 }

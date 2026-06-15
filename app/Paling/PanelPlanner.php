@@ -22,10 +22,13 @@ class PanelPlanner
         $rails = $filled['rails'];
         $gravel = $filled['gravelMm'] ?? 0;
         $point = $filled['pointMm'] ?? 0;
+        $set = $filled['setMm'] ?? 0;
         $pickets = Layout::picketCount($width, $picket, $gap);
         $picketLength = $height - $gravel;
         $boardLength = $gravel === 0 ? 0 : $width;
         $pointWood = $point === 0 ? 0 : Layout::pointWoodMm($pickets, $point);
+        $postLength = $set === 0 ? 0 : Layout::postLengthMm($height, $set);
+        $postWood = $set === 0 ? 0 : Layout::postWoodMm($postLength);
 
         return [
             'name' => trim($filled['name']),
@@ -36,11 +39,14 @@ class PanelPlanner
             'rails' => $rails,
             'gravelMm' => $gravel,
             'pointMm' => $point,
+            'setMm' => $set,
             'picketLengthMm' => $picketLength,
             'pickets' => $pickets,
             'boardLengthMm' => $boardLength,
             'pointWoodMm' => $pointWood,
-            'woodLengthMm' => Layout::woodLengthMm($width, $picketLength, $pickets, $rails, $boardLength, $pointWood),
+            'postCount' => $set === 0 ? 0 : 2,
+            'postLengthMm' => $postLength,
+            'woodLengthMm' => Layout::woodLengthMm($width, $picketLength, $pickets, $rails, $boardLength, $pointWood, $postWood),
         ];
     }
 

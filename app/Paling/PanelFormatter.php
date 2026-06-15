@@ -16,6 +16,7 @@ class PanelFormatter
             "rails: {$plan['rails']}",
             $plan['gravelMm'] === 0 ? 'gravel: none' : "gravel: {$plan['gravelMm']} mm, board {$plan['boardLengthMm']} mm",
             $plan['pointMm'] === 0 ? 'point: none' : "point: {$plan['pointMm']} mm, {$plan['pointWoodMm']} mm extra",
+            $plan['setMm'] === 0 ? 'posts: none' : "posts: {$plan['postCount']} at {$plan['postLengthMm']} mm, set {$plan['setMm']} mm",
             "wood: {$plan['woodLengthMm']} mm",
         ]);
     }

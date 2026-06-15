@@ -17,6 +17,7 @@ class PanelApiTest extends TestCase
         $sample->assertJsonPath('pickets', 16);
         $sample->assertJsonPath('gravelMm', 0);
         $sample->assertJsonPath('pointMm', 0);
+        $sample->assertJsonPath('postCount', 0);
         $sample->assertJsonPath('woodLengthMm', 17240);
     }
 
@@ -38,6 +39,12 @@ class PanelApiTest extends TestCase
         $pointed->assertJsonPath('picketLengthMm', 900);
         $pointed->assertJsonPath('pointWoodMm', 640);
         $pointed->assertJsonPath('woodLengthMm', 17880);
+
+        $posted = $this->postJson('/api/panels', [...SamplePanel::garden(), 'setMm' => 450]);
+        $posted->assertOk();
+        $posted->assertJsonPath('postCount', 2);
+        $posted->assertJsonPath('postLengthMm', 1350);
+        $posted->assertJsonPath('woodLengthMm', 19940);
 
         $bad = $this->postJson('/api/panels', [
             'name' => '',

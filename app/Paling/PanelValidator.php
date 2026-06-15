@@ -41,6 +41,10 @@ class PanelValidator
         if ($point !== null && ! self::inRange($point, Sizes::MIN_POINT_MM, Sizes::MAX_POINT_MM)) {
             $errors[] = 'pointMm: pointMm must be an integer from '.Sizes::MIN_POINT_MM.' to '.Sizes::MAX_POINT_MM;
         }
+        $set = $panel['setMm'] ?? null;
+        if ($set !== null && ! self::inRange($set, Sizes::MIN_SET_MM, Sizes::MAX_SET_MM)) {
+            $errors[] = 'setMm: setMm must be an integer from '.Sizes::MIN_SET_MM.' to '.Sizes::MAX_SET_MM;
+        }
         if ($errors !== []) {
             return $errors;
         }
