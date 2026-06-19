@@ -53,5 +53,22 @@ class PanelApiTest extends TestCase
         ]);
         $bad->assertStatus(400);
         $bad->assertExactJson(['errors' => ['name: Panel needs a name']]);
+
+        $elevation = $this->get('/api/sample/elevation');
+        $elevation->assertOk();
+        $elevation->assertHeader('content-type', 'image/svg+xml; charset=utf-8');
+        $this->assertStringContainsString(
+            'sample-garden-paling-elevation.svg',
+            (string) $elevation->headers->get('content-disposition'),
+        );
+        $elevation->assertSee('viewBox="0 0 1420 916"', false);
+
+        $badDrawing = $this->postJson('/api/panels/elevation', [
+            'name' => '',
+            'widthMm' => 1420,
+            'heightMm' => 900,
+        ]);
+        $badDrawing->assertStatus(400);
+        $badDrawing->assertExactJson(['errors' => ['name: Panel needs a name']]);
     }
 }

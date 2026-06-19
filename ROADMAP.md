@@ -1,14 +1,10 @@
 # Roadmap
 
-Paling plans one picket panel over HTTP, can add a gravel board, can add a point on each picket, can place a post at each end, and counts its pickets and wood. Two updates remain, and about 38 hours stay after those.
+Paling plans one picket panel over HTTP, can add a gravel board, can add a point on each picket, can place a post at each end, counts its pickets and wood, and returns the elevation as an SVG. One update remains, and about 38 hours stay after that.
 
-## The next two updates
+## The next update
 
-### Elevation (the next update)
-
-Return the panel as an SVG, with the pickets, the gaps, and the rails.
-
-### Compare
+### Compare (the next update)
 
 Compare two panels by picket count and wood length.
 
@@ -60,4 +56,4 @@ Add a cap along the posts and report its length.
 
 List the nails, the clips, and the post caps for the plan.
 
-An elevation is the next piece. The API can place the posts, and it does not yet return a drawing.
+A comparison is the next piece. The API can return the elevation, and it does not yet compare two panels.
