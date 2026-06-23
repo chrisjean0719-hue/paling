@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Paling\Compare;
 use App\Paling\Elevation;
 use App\Paling\PanelException;
 use App\Paling\PanelPlanner;
@@ -53,6 +54,64 @@ class PanelController extends Controller
         } catch (PanelException $exception) {
             return response()->json(['errors' => $exception->errors], 400);
         }
+    }
+
+    public function compare(Request $request): JsonResponse
+    {
+        $payload = $this->payload($request);
+        if ($payload instanceof JsonResponse) {
+            return $payload;
+        }
+
+        $errors = [];
+        $left = $this->side('left', $payload['left'] ?? null, $errors);
+        $right = $this->side('right', $payload['right'] ?? null, $errors);
+        if ($left === null || $right === null) {
+            return response()->json(['errors' => $errors], 400);
+        }
+
+        $diff = Compare::panels($left, $right);
+
+        return response()->json([
+            'left' => $left['name'],
+            'right' => $right['name'],
+            'pickets' => $diff['pickets'],
+            'woodLengthMm' => $diff['woodLengthMm'],
+            'text' => Compare::format($left, $right, $diff),
+        ]);
+    }
+
+    /**
+     * @param  list<string>  $errors
+     * @return array<string, int|string>|null
+     */
+    private function side(string $side, mixed $panel, array &$errors): ?array
+    {
+        if (! is_array($panel) || array_is_list($panel)) {
+            $errors[] = $side.': Compare needs a '.$side.' panel';
+
+            return null;
+        }
+
+        try {
+            return PanelPlanner::plan($panel);
+        } catch (PanelException $exception) {
+            foreach ($exception->errors as $message) {
+                $errors[] = $this->label($side, $message);
+            }
+
+            return null;
+        }
+    }
+
+    private function label(string $side, string $message): string
+    {
+        $index = strpos($message, ':');
+        if ($index === false) {
+            return $side.': '.$message;
+        }
+
+        return $side.'.'.substr($message, 0, $index).substr($message, $index);
     }
 
     /**

@@ -8,3 +8,4 @@ Route::get('/sample', [PanelController::class, 'sample']);
 Route::get('/sample/elevation', [PanelController::class, 'sampleElevation']);
 Route::post('/panels', [PanelController::class, 'store']);
 Route::post('/panels/elevation', [PanelController::class, 'elevation']);
+Route::post('/panels/compare', [PanelController::class, 'compare']);
