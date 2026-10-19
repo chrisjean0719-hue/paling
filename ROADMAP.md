@@ -1,32 +1,32 @@
 # Roadmap
 
-Paling plans one picket panel over HTTP, can add a gravel board, can add a point on each picket, can place a post at each end, counts its pickets and wood, returns the elevation as an SVG, and compares two panels. The six updates are complete. About 38 hours remain.
+Paling plans one picket panel over HTTP, can add a gravel board, can add a point on each picket, can place a post at each end, counts its pickets and wood, returns the elevation as an SVG, and compares two panels. The six updates are complete. About 30 hours remain.
 
 ## After the sixth update
 
-These stay after the six updates. They are about 38 hours.
+These stay after the six updates. They are about 30 hours.
 
-### Gate leaf (4 hours)
+### Gate leaf (3 hours)
 
 Plan a matching gate in one bay and count its extra stiles.
 
-### Post concrete (3 hours)
+### Post concrete (2 hours)
 
 Estimate the concrete for each post from a hole size.
 
-### Arris rail (3 hours)
+### Arris rail (2 hours)
 
 Choose a rectangular or an arris rail and report the rail section.
 
-### Stain area (4 hours)
+### Stain area (3 hours)
 
 Turn the faces of the pickets and the rails into a stain area.
 
-### Bay count (4 hours)
+### Bay count (3 hours)
 
 Repeat the panel across a run and count the shared posts once.
 
-### Slope (4 hours)
+### Slope (3 hours)
 
 Step the pickets down a slope while keeping each picket a whole length.
 
@@ -34,7 +34,7 @@ Step the pickets down a slope while keeping each picket a whole length.
 
 Count the nails where each picket crosses a rail.
 
-### Post spacing (4 hours)
+### Post spacing (3 hours)
 
 Check that the posts stay inside a chosen maximum spacing.
 
@@ -42,7 +42,7 @@ Check that the posts stay inside a chosen maximum spacing.
 
 Lay the counts and the elevation out for one printed page.
 
-### Capping (3 hours)
+### Capping (2 hours)
 
 Add a cap along the posts and report its length.
 
